@@ -1,0 +1,1 @@
+<h1>page was not found baby this is 404.view.php</h1>
