@@ -12,6 +12,6 @@ class Controller{
         }
         $data = ["name"=>"himanshu jia", "phone"=>"2341212121", "email"=>"hemish@gmail.com"];
         $model = new Model();
-        echo var_dump($model->numrows());
+        echo var_dump($model->delete(6));
     }
 }

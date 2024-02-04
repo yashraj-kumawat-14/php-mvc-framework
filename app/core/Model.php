@@ -13,11 +13,29 @@ class Model
         $query = "INSERT INTO `$this->table` ($columns) VALUES ($fields)";
         return $this->query_execute($query);
     }
-    function numrows()
+    public function numrows()
     {
         $query = "select * from `$this->table`";
         $result =  $this->query_execute($query);
         $numrows = mysqli_num_rows($result);
         return $numrows;
+    }
+
+    public function where($data){
+        $string = '';
+        foreach($data as $key => $value){
+            $string .= $key."="."$value"."&&";
+        };
+
+        $string = rtrim($string, "&&");
+        $query = "select * from `$this->table` where $string";
+        $result =  $this->query_execute($query);
+        return $result;
+    }
+
+    public function delete($id){
+        $query = "delete from `$this->table` where id=$id";
+        $result =  $this->query_execute($query);
+        return $result;
     }
 }

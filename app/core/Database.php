@@ -21,7 +21,7 @@ trait Database{
         $result = mysqli_query($conn, $query);
         if(!$result){
             $error = mysqli_error($conn);
-            return $error;
+            return false;
         }
         else{
             return $result;
